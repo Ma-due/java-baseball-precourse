@@ -14,6 +14,11 @@ public class OutputView {
     private static String getResultMessage(GameResult gameResult) {
         StringBuilder resultMessage = new StringBuilder();
 
+        if((!gameResult.hasBallCount() && !gameResult.hasStrikeCount())) {
+            resultMessage.append("낫싱");
+
+            return resultMessage.toString();
+        }
         if (gameResult.hasBallCount()) {
             resultMessage.append(String.format("%d볼 ", gameResult.getBallCount()));
         }

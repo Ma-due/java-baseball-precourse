@@ -23,4 +23,16 @@ public class InputView {
                 .map(Integer::parseInt)
                 .collect(Collectors.toList());
     }
+
+    public boolean inputRestartOpt() {
+        System.out.println("재시작 하려면 1 종료는 2");
+        String inputNumber = scanner.nextLine();
+
+        /* 검증 로직 */
+
+        int RestartOpt = Integer.parseInt(inputNumber);
+        if(RestartOpt == 1) return true;
+
+        return false;
+    }
 }
