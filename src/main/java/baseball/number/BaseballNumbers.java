@@ -1,5 +1,6 @@
 package baseball.number;
 
+import com.sun.org.apache.xerces.internal.impl.dv.xs.Base64BinaryDV;
 import utils.RandomUtils;
 
 import java.util.HashSet;
@@ -27,5 +28,27 @@ public class BaseballNumbers {
                 .collect(Collectors.toList());
 
         return new BaseballNumbers(baseballNumbers);
+    }
+
+    public static BaseballNumbers generateInputNumbers(List<Integer> inputNumberList) {
+        List<BaseballNumber> baseballNumbers =
+                inputNumberList.stream()
+                        .map(BaseballNumber::intToBaseballNumber)
+                        .collect(Collectors.toList());
+
+        return new BaseballNumbers(baseballNumbers);
+    }
+
+    public boolean match(BaseballNumbers targetBaseballNumbers, int index) {
+        BaseballNumber baseballNumber = this.baseballNumbers.get(index);
+        BaseballNumber targetBaseballNumber = targetBaseballNumbers.baseballNumbers.get(index);
+
+        return baseballNumber.equals(targetBaseballNumber);
+    }
+
+    public boolean contains(BaseballNumbers targetBaseballNumbers, int index) {
+        BaseballNumber targetBaseballNumber = targetBaseballNumbers.baseballNumbers.get(index);
+
+        return this.baseballNumbers.contains(targetBaseballNumber);
     }
 }
