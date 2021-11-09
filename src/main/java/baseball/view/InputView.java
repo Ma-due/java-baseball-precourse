@@ -17,7 +17,9 @@ public class InputView {
         System.out.println("숫자를 입력해주세요. : ");
         String inputNumber = scanner.nextLine();
 
-        /* 검증 로직 */
+        if(!isValidationInputNumber(inputNumber)) {
+            inputNumber = scanner.nextLine();
+        }
 
         return Arrays.stream(inputNumber.split(""))
                 .map(Integer::parseInt)
@@ -28,11 +30,50 @@ public class InputView {
         System.out.println("재시작 하려면 1 종료는 2");
         String inputNumber = scanner.nextLine();
 
-        /* 검증 로직 */
+        if(!isValidationRestartOpt(inputNumber)) {
+            System.out.println("재시작 하려면 1 종료는 2");
+            inputNumber = scanner.nextLine();
+        }
 
-        int RestartOpt = Integer.parseInt(inputNumber);
-        if(RestartOpt == 1) return true;
+        return Integer.parseInt(inputNumber) == 1;
+    }
 
-        return false;
+    private boolean isValidationRestartOpt(String inputNumber) {
+        try {
+            validationRestartOpt(inputNumber);
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println("숫자를 재입력해주세요");
+            return false;
+        }
+    }
+
+    private void validationRestartOpt(String inputNumber) {
+        boolean isOneLengthInt = inputNumber.chars().count() == 1;
+        if(!isOneLengthInt) throw new IllegalArgumentException();
+
+        int restartOpt = Integer.parseInt(inputNumber);
+        if(!(restartOpt == 1 || restartOpt == 2)) {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    private boolean isValidationInputNumber(String inputNumber) {
+        try {
+            validationInputNumber(inputNumber);
+            return true;
+        } catch (IllegalArgumentException e) {
+            System.out.println("숫자를 재입력해 주세요.");
+            return false;
+        }
+    }
+
+    private void validationInputNumber(String inputNumber) {
+        boolean isDuplicated = inputNumber.chars()
+                .filter(number -> '1' <= number && number <= '9')
+                .distinct()
+                .count() == 3;
+
+        if(!isDuplicated) throw new IllegalArgumentException();
     }
 }
