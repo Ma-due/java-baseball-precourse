@@ -1,11 +1,8 @@
 package baseball.domain.game;
 
-
 import baseball.number.BaseballNumbers;
 import baseball.view.InputView;
 import baseball.view.OutputView;
-
-import java.util.List;
 
 public class GameController {
 

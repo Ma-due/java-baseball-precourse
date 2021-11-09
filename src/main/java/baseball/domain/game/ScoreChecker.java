@@ -5,9 +5,11 @@ import baseball.number.BaseballNumbers;
 import java.util.stream.IntStream;
 
 public class ScoreChecker {
+    private static final int NUMBER_INDEX_START = 0;
+    private static final int NUMBER_INDEX_END = 2;
 
     public static int strikeCounting(BaseballNumbers target, BaseballNumbers user) {
-        return (int) IntStream.rangeClosed(0, 2)
+        return (int) IntStream.rangeClosed(NUMBER_INDEX_START, NUMBER_INDEX_END)
                 .filter(index -> isStrike(target, user, index))
                 .count();
     }
@@ -17,7 +19,7 @@ public class ScoreChecker {
     }
 
     public static int ballCounting(BaseballNumbers target, BaseballNumbers user) {
-        return (int) IntStream.rangeClosed(0, 2)
+        return (int) IntStream.rangeClosed(NUMBER_INDEX_START, NUMBER_INDEX_END)
                 .filter(index -> isBall(target, user, index))
                 .count();
     }

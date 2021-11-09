@@ -8,6 +8,9 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public class BaseballNumbers {
+    private static final int NUMBER_COUNT = 3;
+    private static final int NUMBER_MINIMUM_RANGE = 1;
+    private static final int NUMBER_MAXIMUM_RANGE = 9;
 
     private final List<BaseballNumber> baseballNumbers;
 
@@ -17,8 +20,8 @@ public class BaseballNumbers {
 
     public static BaseballNumbers generateRandomNumbers() {
         Set<Integer> randomNumbers = new HashSet<>();
-        while(randomNumbers.size() < 3) {
-            int randomNumber = RandomUtils.nextInt(1, 9);
+        while(randomNumbers.size() < NUMBER_COUNT) {
+            int randomNumber = RandomUtils.nextInt(NUMBER_MINIMUM_RANGE, NUMBER_MAXIMUM_RANGE);
             randomNumbers.add(randomNumber);
         }
 

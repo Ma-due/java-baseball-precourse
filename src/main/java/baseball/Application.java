@@ -16,5 +16,7 @@ public class Application {
             GameController gameController = new GameController(inputView);
             restartOpt = gameController.playGame();
         }
+
+        scanner.close();
     }
 }
