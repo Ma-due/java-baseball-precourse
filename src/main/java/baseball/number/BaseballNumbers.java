@@ -25,8 +25,6 @@ public class BaseballNumbers {
             randomNumbers.add(randomNumber);
         }
 
-        System.out.println(randomNumbers);
-
         List<BaseballNumber> baseballNumbers = randomNumbers.stream()
                 .map(BaseballNumber::intToBaseballNumber)
                 .collect(Collectors.toList());

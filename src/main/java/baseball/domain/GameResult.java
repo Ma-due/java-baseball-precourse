@@ -1,4 +1,4 @@
-package baseball.domain.game;
+package baseball.domain;
 
 public class GameResult {
     private static final int ZERO_VALUE = 0;
@@ -13,9 +13,7 @@ public class GameResult {
     }
 
     public boolean isEndOfGame() {
-        if (this.strikeCount == ANSWER_VALUE) return true;
-
-        return false;
+        return this.strikeCount == ANSWER_VALUE;
     }
 
     public boolean hasBallCount() {

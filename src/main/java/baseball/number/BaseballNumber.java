@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class BaseballNumber {
-    public static final Map<Integer, BaseballNumber> CACHE = new HashMap<>();
+    private static final Map<Integer, BaseballNumber> CACHE = new HashMap<>();
 
     private final int baseballNumber;
 

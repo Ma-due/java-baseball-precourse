@@ -1,6 +1,6 @@
 package baseball;
 
-import baseball.domain.game.GameController;
+import baseball.domain.GameController;
 import baseball.view.InputView;
 
 import java.util.Scanner;
